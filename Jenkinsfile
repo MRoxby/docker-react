@@ -3,7 +3,7 @@ pipeline {
         dockerfile {
              filename 'Dockerfile.dev'
              label 'MRoxby/docker-react'
-             additionalBuildArgs '.'
+             dir '.'
               } 
             }
     stages {
