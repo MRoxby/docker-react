@@ -1,16 +1,6 @@
-pipeline {
-    agent { 
-        docker {
-             filename 'Dockerfile.dev'
-             label 'mroxby/docker-react'
-             dir '.'
-              } 
-            }
-    stages {
-        stage('test') {
-            steps {
-                sh 'docker run mroxby/docker-react npm run test -- --coverage'
-            }
-        }
+node ('master'){
+    stage ('docker build'){
+    bat 'docker build -t mroxby/docker-react -f dockerfile.dev .'
+    bat 'docker run -p 3000:3000 mroxby/docker-react'
     }
 }
