@@ -2,14 +2,14 @@ pipeline {
     agent { 
         docker {
              filename 'Dockerfile.dev'
-             label 'MRoxby/docker-react'
+             label 'mroxby/docker-react'
              dir '.'
               } 
             }
     stages {
-        stage('build') {
+        stage('test') {
             steps {
-                sh 'docker run MRoxby/docker-react npm run test -- --coverage'
+                sh 'docker run mroxby/docker-react npm run test -- --coverage'
             }
         }
     }
