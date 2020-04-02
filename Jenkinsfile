@@ -7,7 +7,7 @@ node ('master'){
     //bat 'docker run -p 3000:3000 mroxby/docker-react'
     }
     stage ('test'){
-        bat 'docker run mroxby/docker-react npm run test -- --coverage'
+        bat 'docker run -p 3000:3000 mroxby/docker-react npm run test -- --coverage'
     }
    
     
