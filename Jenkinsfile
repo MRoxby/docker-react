@@ -1,6 +1,6 @@
 node ('master'){
     stage ('git clone'){
-        git 'clone https://github.com/MRoxby/docker-react'
+        git 'clone https://github.com/MRoxby/docker-react.git'
     }
     stage ('docker build'){
     bat 'docker build -t mroxby/docker-react -f dockerfile.dev .'
