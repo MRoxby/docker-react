@@ -4,8 +4,11 @@ node ('master'){
     }
     stage ('docker build'){
     bat 'docker build -t mroxby/docker-react -f dockerfile.dev .'
-    bat 'docker run -p 3000:3000 mroxby/docker-react'
-   //bat 'docker run mroxby/docker-react npm run test -- --coverage'
+    //bat 'docker run -p 3000:3000 mroxby/docker-react'
     }
+    stage ('test'){
+        bat 'docker run mroxby/docker-react npm run test -- --coverage'
+    }
+   
     
 }
